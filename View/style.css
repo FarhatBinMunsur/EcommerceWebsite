@@ -1,0 +1,177 @@
+body {
+  background-color: antiquewhite;
+  height: 100%;
+  
+}
+.sidebar {
+  background-color: rgb(43, 164, 164);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 7px;
+  height: 100vh;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 2px;
+}
+
+.sidebar input {
+  width: 200px;
+  height: 30px;
+  border: rgb(222, 215, 215);
+  border-radius: 20px;
+}
+
+.sidebar h1 {
+  color: bisque;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar input:hover {
+  background-color: rgb(6, 94, 94);
+  color: wheat;
+}
+
+.main {
+  display: flex;
+  gap: 20px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.productCard {
+  background-color: rgb(52, 182, 182);
+  width: 100%;
+  height: fit-content;
+  margin-top: 5px;
+  padding: 7px;
+  padding-bottom: 2px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+
+.productCard img{
+  margin-bottom: 5px;
+}
+
+.productInfo {
+  flex: 1;
+  display: flex;
+  justify-content: center;  
+  gap: 100px;
+}
+
+.productCard form{
+  margin-left: auto;   
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  margin-right: 10px;  /
+}
+
+.productCard p{
+  align-items: center;
+  font-size: larger;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+}
+
+th,
+td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.topheading {
+  color:bisque;
+  text-align: center;
+  background-color: rgb(49, 97, 105) ;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 5px;
+}
+
+.backbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backbtn input,
+.cforder {
+  font-weight: bold;
+  background-color: rgb(12, 202, 202);
+  height: 30px;
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.confirmOrder textarea {
+  width: 350px;
+  box-sizing: border-box;
+  height: 100px;
+}
+
+.phone,
+.pmt {
+  width: 350px;
+}
+
+.confirmOrder {
+  margin-left: 390px;
+  margin-right: 500px;
+}
+
+.cforder {
+  margin-left: 140px;
+  position: static;
+}
+
+.tables {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  min-height: 100vh; /* so it centers against the full page, not just content height */
+  gap: 20px;
+  overflow-y: auto;
+  margin-left: 70px;
+  margin-right: 100px;
+}
+
+cancelForm {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancelOrderbtn {
+    display: inline-block;
+    margin: 0;
+}
+
+img{
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  
+}
