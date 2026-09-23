@@ -36,7 +36,7 @@
                 <input type="submit" name="orders" value="My orders" id="">
             </form>
 
-            <form action="">
+            <form action="../Controller/logoutHandler.php" method="post">
                 <input type="submit" value="LogOut" name="Home" id="">
             </form>
 

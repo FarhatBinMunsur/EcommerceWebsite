@@ -10,10 +10,10 @@ function establishConnection(){
     return $conn;
 }
 
-function insertToCart($productID,$quantity){
+function insertToCart($userID,$productID,$quantity){
 
     $conn=establishConnection();
-    $sql="select * from cart where userID=1 and productID='$productID'";
+    $sql="select * from cart where userID='$userID' and productID='$productID'";
     $result=$conn->query($sql);
 
     //check if user have product in the cart
@@ -33,12 +33,13 @@ function insertToCart($productID,$quantity){
 
   
     else{
+        
     $sql="select price from product where productID='$productID'";
     $result=$conn->query($sql)->fetch_assoc();
     $price=$result['price']*$quantity;
 
     $sql = "INSERT INTO cart (userID, ProductID, Quantity,price)
-            VALUES (1, $productID, $quantity,$price)";
+            VALUES ($userID, $productID, $quantity,$price)";
     $result = $conn->query($sql);
 
     $sql="update product set stock=(stock-$quantity) where productID='$productID' ";
@@ -52,7 +53,7 @@ function viewCart($userID)
 {
     $conn = establishConnection();
 
-    $sql = "SELECT * FROM cart join product on cart.productID = product.productID WHERE userID = '$userID';";
+    $sql = "SELECT * FROM cart join product on cart.productID = product.productID WHERE userID = '$userID'";
     $result = $conn->query($sql);
 
     if ($result === false) {
@@ -97,7 +98,7 @@ function confirmOrder($userID,$deliveryLocation,$phone,$paymentType){
     $orderDate=date('Y-m-d');
     $status="pending";
     //order insert
-    $sql="insert into orders(userID,deliveryLocation,phone,paymentType,orderDate,status) values('2','$deliveryLocation','$phone','$paymentType','$orderDate','$status')";
+    $sql="insert into orders(userID,deliveryLocation,phone,paymentType,orderDate,status) values('$userID','$deliveryLocation','$phone','$paymentType','$orderDate','$status')";
     $result=$conn->query($sql);
     $orderID=$conn->insert_id;
 

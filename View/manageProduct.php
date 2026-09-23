@@ -7,6 +7,8 @@ require_once __DIR__ ."/../Controller/manageProductHandler.php";
 
 // $_SESSION['userID'] = 2;
 
+var_dump($_FILES);
+
 
 ?>
 <html>
@@ -35,7 +37,7 @@ require_once __DIR__ ."/../Controller/manageProductHandler.php";
                 <input type="submit" name="orders" value="Product Operation" id="">
             </form>
 
-            <form action="">
+            <form action="../View/viewProfile.php" method="post">
                 <input type="submit" value="My Profile" name="Home" id="">
             </form>
 
@@ -46,7 +48,7 @@ require_once __DIR__ ."/../Controller/manageProductHandler.php";
         </div>
 
         <div>
-            <form action="../Controller/manageProductHandler.php" method="post" ">
+            <form action="../Controller/manageProductHandler.php" method="post"  enctype="multipart/form-data">
 
             Product Name: <input type="text" name="pname" <?php if(isset($product)) echo "readonly"?> value="<?php if(isset($product)) echo $product['name'] ;?>"><br><br>
             Select Catagory: <select name="ctg" id="">
@@ -59,6 +61,7 @@ require_once __DIR__ ."/../Controller/manageProductHandler.php";
             Product Price: <input type="text" name="pprice" value="<?php if(isset($product)) echo $product['price'] ;?>"><br><br>
             Product Stock: <input type="text" name="stock" value="<?php if(isset($product)) echo $product['stock'] ;?>"><br><br>
             Product Details: <input type="text" name="details" value="<?php if(isset($product)) echo $product['details']?>"><br><br>
+            Product Image: <input type="file" name="image" id=""><br><br>
 
             <input type="submit" value="Save Product" name="" id="">
             </form>

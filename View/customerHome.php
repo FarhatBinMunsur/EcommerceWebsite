@@ -3,7 +3,7 @@ session_start();
 require_once __DIR__ . '/../Model/viewallproduct.php';
 $products = showProduct();
 // var_dump($products);
-$_SESSION['userID'] = 1;
+// echo $_SESSION['userID'] ;
 ?>
 <html>
 
@@ -31,18 +31,19 @@ $_SESSION['userID'] = 1;
                 <input type="submit" name="orders" value="My orders" id="">
             </form>
 
-            <form action="">
+            <form action="../View/viewProfile.php" method="post">
                 <input type="submit" value="My Profile" name="Home" id="">
             </form>
 
-            <form action="">
+            <form action="../Controller/logoutHandler.php">
                 <input type="submit" value="LogOut" name="Home" id="">
             </form>
 
         </div>
 
         <div class="product">
-                        
+                
+        <input type="search" name="" id="">
             <?php foreach ($products as $p) { ?>
                 <div name="productCard" class="productCard">
                     <img src="<?php echo $p['image']?>" alt="image not available">

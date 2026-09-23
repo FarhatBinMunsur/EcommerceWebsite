@@ -1,17 +1,15 @@
 <?php
     require_once __DIR__.'/../Model/MyCart.php';
     $cart = $_SESSION['cart']; 
-    // var_dump($cart);
+    var_dump($cart);
     // var_dump($_SESSION);
 ?>
 <html>
     <head>
     <link rel="stylesheet" href="style.css">
-    
     </head>
     
     <body>
-
     <h1 class="topheading">My Cart</h1>
 
     <div class="main">
@@ -62,7 +60,7 @@
 
             <tr>
             <td colspan="3" >Sub Total: </td>
-            <td colspan="2"><?php echo"\t". $total?></td>
+            <td colspan="2"><?php echo $total?></td>
             
             </tr>
 
@@ -83,7 +81,7 @@
     <br><br>
     <div class="confirmOrder">
         <form action="../Controller/cartHandler.php" method="post">
-            <input type="hidden" name="confirm" value="<?php echo $cart[0]['userID']; ?>">    
+            <input type="hidden" name="confirm" value="<?php echo $_SESSION['userID']; ?>">    
             
             Delivery Location: <br>
             <textarea name="dl" id=""></textarea>

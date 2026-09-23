@@ -17,7 +17,7 @@ function fetchCatagory(){
     }
      return $catagory;
 }
-function addProduct($name,$catagory,$price,$stock,$details){
+function addProduct($name,$catagory,$price,$stock,$details,$imgPath){
     $connection = new DbConnection();
     $conn = $connection->connect();
 
@@ -26,7 +26,7 @@ function addProduct($name,$catagory,$price,$stock,$details){
     $result= $conn->query($sql)->fetch_assoc();
 
     if($result['total']>0){
-        $sql= "update product SET name = '$name' , catagory = '$catagory', price = '$price', stock = '$stock', details = '$details' WHERE name = '$name'";
+        $sql= "update product SET name = '$name' , catagory = '$catagory', price = '$price', stock = '$stock', details = '$details' , image='$imgPath' WHERE name = '$name'";
 
         $conn->query($sql);
         $result=$conn->query($sql);
@@ -36,7 +36,7 @@ function addProduct($name,$catagory,$price,$stock,$details){
 
     //else add new product 
     else{
-    $sql= "insert into product(name,catagory,price,stock,details) values('$name','$catagory','$price','$stock','$details')";
+    $sql= "insert into product(name,catagory,price,stock,details,images) values('$name','$catagory','$price','$stock','$details')";
     $result=$conn->query($sql);
     return $conn->insert_id;
     }

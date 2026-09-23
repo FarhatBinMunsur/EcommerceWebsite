@@ -25,7 +25,7 @@
                 <input type="submit" name="Cart" value="Cart" id="">
             </form>
 
-            <form action="">
+            <form action="" method="post">
                 <input type="submit" name="orders" value="My orders" id="">
             </form>
 

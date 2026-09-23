@@ -34,7 +34,7 @@ function cancelOrder($orderid){
     $sql="delete from order_items where orderID=$orderid";
     $conn->query($sql);
     
-    $sql="delete from orders where orderID=$orderid";
+    $sql="update orders set status='cancelled' where orderID=$orderid";
     $conn->query($sql);
 
     

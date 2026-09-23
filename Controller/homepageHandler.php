@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['action']) && $_POST['action'] == "addtocart") {
 
         require_once __DIR__ . '/../Model/MyCart.php';
-        $value = insertToCart($_POST['productID'],$_POST['quantity']);
+        $value = insertToCart($_SESSION['userID'],$_POST['productID'],$_POST['quantity']);
 
 
 

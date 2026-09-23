@@ -2,7 +2,7 @@
 session_start();
 
 // var_dump($products);
-$_SESSION['userID'] = 2;
+
 ?>
 <html>
 
@@ -27,10 +27,10 @@ $_SESSION['userID'] = 2;
             </form>
 
             <form action="../View/manageProduct.php" method="post">
-                <input type="submit" name="orders" value="Product Operation" id="">
+                <input type="submit" name="po" value="Product Operation" id="">
             </form>
 
-            <form action="">
+            <form action="../View/viewProfile.php" method="post">
                 <input type="submit" value="My Profile" name="Home" id="">
             </form>
 

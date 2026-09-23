@@ -11,7 +11,19 @@ if(isset($_POST['pname'])){
     $stock=$_POST['stock'];
     $details=$_POST['details'];
 
-    $successmsg=addProduct($pname,$catagory,$price,$stock,$details);
+
+    //Image Operation
+    
+    $imgName=$_FILES['image']['name'];
+    $imgtmpPath=$_FILES['image']['tmp_name'];
+
+    $imgPath=__DIR__. "/../View/images/" .$imgName;
+
+    $dbImagePath = "images/" . $imgName;
+    move_uploaded_file($imgtmpPath,$imgPath);
+    
+
+    $successmsg=addProduct($pname,$catagory,$price,$stock,$details,$dbImagePath);
     header('Location: ../View/manageProduct.php');
     exit();
 
