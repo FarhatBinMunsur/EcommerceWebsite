@@ -22,7 +22,8 @@ if(isset($_POST['pname'])){
     $dbImagePath = "images/" . $imgName;
     move_uploaded_file($imgtmpPath,$imgPath);
     
-
+    $dbImagePath=$dbImagePath ??""; //img na upload krleo hbe
+    
     $successmsg=addProduct($pname,$catagory,$price,$stock,$details,$dbImagePath);
     header('Location: ../View/manageProduct.php');
     exit();
@@ -46,6 +47,9 @@ if(isset($_GET['action']) && $_GET['action']== 'delete'){
 
 
 require_once __DIR__.'/../Model/viewallproduct.php';
-$products=showProduct();
+$productM=new Product();
+$products=$productM->showProduct();
 
+// var_dump($products);
+// echo "<br>";
 require_once __DIR__.'/../View/manageProduct.php';

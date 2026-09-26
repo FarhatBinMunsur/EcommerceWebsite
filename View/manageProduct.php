@@ -3,11 +3,11 @@
 require_once __DIR__ ."/../Controller/manageProductHandler.php";
 // var_dump($catagory);
 
-// var_dump($product);
+// var_dump($products);
 
 // $_SESSION['userID'] = 2;
 
-var_dump($_FILES);
+// var_dump($_FILES);
 
 
 ?>

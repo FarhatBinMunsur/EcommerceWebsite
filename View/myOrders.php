@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__.'/../Controller/myOrderHandler.php';        //give me $orders
-    // var_dump($orders);
+    var_dump($orders);
     // var_dump($cart);
     // var_dump($_SESSION);
 ?>
@@ -45,6 +45,8 @@
                 <tr>
                     <th colspan="2"><?php echo "Order ID: $key " ?></th>
                     <th colspan="2"><?php echo "Status: $value[status] " ?></th> 
+                    <th>Details</th>
+
                 </tr>
 
                 <tr>
@@ -52,19 +54,23 @@
                     <th>Unit Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
+                    <td rowspan="<?php echo count($orders[$key])+1 ;?>"> <?php echo "Will be Delivered to :".$orders[$key]['deliveryLoc']. "<br>" . "Phone: " . $orders[$key]['phone']?></td>
+
                 </tr>
                 
-                <?php for($i=0; $i<count($orders[$key])-1;$i++){ ?>
+                <?php for($i=0; $i<count($orders[$key])-3;$i++){ ?>
                 <tr>
                     <td ><?php echo $value[$i]['name']?></td>
                     <td ><?php echo $value[$i]['price']?></td>
                     <td ><?php echo $value[$i]['quantity']?></td>
                     <td ><?php echo $value[$i]['total']?></td>
-
                 </tr>
 
 
+
                 <?php }?>
+
+
             </table>
             
             <form  class="cancelForm" action="../Controller/myOrderHandler.php">

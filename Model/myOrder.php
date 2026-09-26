@@ -9,18 +9,25 @@ function establishConnection(){
 function viewOrders($userID){
     $conn=establishConnection();
     $orders=[];
-    $sql="select orderID,status from orders where userID= '$userID'";
+    $sql="select orderID,status,deliveryLocation,phone from orders where userID= '$userID'";
     $result=$conn->query($sql);
 
     while($row=$result->fetch_assoc()){
     $orderID=$row['orderID'];
-    $status=$row['status'];   
+    $status=$row['status'];
+    $deliveryLoc=$row['deliveryLocation'];   
+    $phone=$row['phone'];   
+    
+
     
     $sql2="select product.name,product.price,order_items.quantity,order_items.price as total  from order_items join product on order_items.productID=product.productID where orderID='$orderID'";
     $result2=$conn->query($sql2);
     while($row2=$result2->fetch_assoc()){
         $orders[$orderID][]=$row2;
         $orders[$orderID]['status']=$status;
+        $orders[$orderID]['deliveryLoc']=$deliveryLoc;
+        $orders[$orderID]['phone']=$phone;
+        
     }
     }
 

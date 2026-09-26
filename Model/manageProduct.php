@@ -36,7 +36,7 @@ function addProduct($name,$catagory,$price,$stock,$details,$imgPath){
 
     //else add new product 
     else{
-    $sql= "insert into product(name,catagory,price,stock,details,images) values('$name','$catagory','$price','$stock','$details')";
+    $sql= "insert into product(name,catagory,price,stock,details,image) values('$name','$catagory','$price','$stock','$details','$imgPath')";
     $result=$conn->query($sql);
     return $conn->insert_id;
     }

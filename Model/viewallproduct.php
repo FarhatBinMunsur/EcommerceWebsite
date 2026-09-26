@@ -1,14 +1,18 @@
 <?php
 require_once __DIR__.'/../db/db.php';
-function establishConnection(){
+
+class Product{
+public function establishConnection(){
     $conn=new DbConnection();
     return $conn->connect();
 }
 
-$products=[];
-function showProduct(){
+
+
+public $products=[];
+public function showProduct(){
     $sql="select * from product";
-    $conn=establishConnection();
+    $conn=$this->establishConnection();
     $result=$conn->query($sql);
 
     // var_dump($result);
@@ -16,11 +20,26 @@ function showProduct(){
     if($result->num_rows>0){
         while ($row=$result->fetch_assoc()) {
             
-            $products[]=$row;
+            $this->products[]=$row;
            
         }
-        return $products;
+        return $this->products;
     }
 
+}
+
+public function searchProductByName($name){
+$conn=$this->establishConnection();
+$sql= "select * from product where name like '%$name%'";
+$result=$conn->query($sql);
+
+$products=[];
+while ($row=$result->fetch_assoc()) {
+    $products[]=$row;
+
+}
+return $products;
+
+}
 }
 ?>
